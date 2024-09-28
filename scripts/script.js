@@ -49,7 +49,25 @@ function showModal(fecha, entrega, recibe, cc, cctv, c_acc, pabellones, upc, p_s
     // observacionesP.innerHTML = '<strong>Observaciones:</strong> ' + (observaciones || 'No hay observaciones');
     // registroDetalles.appendChild(observacionesP);
 }
+
 function openModal(turnoId) {
     document.getElementById('turno_id').value = turnoId;
     document.getElementById('modalTexto').innerHTML = "Ingrese el nombre de usuario que firmará la entrega de este turno: " + turnoId;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    const mybutton = document.getElementById("scrollToTopBtn");
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+    } else {
+        mybutton.style.display = "none";
+    }
+}
+
+// Cuando el usuario hace clic en el botón, sube al inicio de la página
+function topFunction() {
+    document.body.scrollTop = 0; // Para Safari
+    document.documentElement.scrollTop = 0; // Para Chrome, Firefox, IE y Opera
 }

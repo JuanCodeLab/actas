@@ -33,10 +33,10 @@ error_reporting(0);
         </ul>
     </div>
 
-    <button onclick="topFunction()" id="scrollToTopBtn" title="Go to top">↑</button>
+    <button onclick="topFunction()" id="scrollToTopBtn" title="Ir al inicio">↑</button>
     
     <div class="content" id="registro">
-        <small style="color: yellow;">Version alfa 1.1.2</small>  
+        <small style="color: yellow;">Version alfa 1.1.3</small>  
         <h1>Registro de cambio de turno</h1>
         <p>Presiona el boton de la derecha para realizar un registro.</p>
               
