@@ -98,6 +98,12 @@ a {
     background-color: #5C5C5C;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
+/* AAAAAAA */
+
+.RDetalles {
+    white-space: normal; 
+    padding-right: 200px;
+}
 
 /* Estilo alerta (amarillo) */
 .btn.alerta {
@@ -377,3 +383,84 @@ p {
     background-color: #444;
     
 }
+
+
+@media (max-width: 768px) { /* Ajusta el ancho según sea necesario */
+    .sidebar {
+        display: none; /* Oculta la barra lateral en móviles */
+    }
+
+    .content {
+        margin-left: 0; /* Elimina el margen izquierdo para el contenido */
+        padding-bottom: 60px; /* Agrega un espacio en la parte inferior para el navbar */
+    }
+
+    .navbar {
+        position: fixed; /* Mantiene el navbar en la parte inferior */
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #242A36; /* Color de fondo del navbar */
+        display: flex; /* Muestra los elementos en fila */
+        justify-content: space-around; /* Espacio entre los elementos */
+        padding: 10px 0; /* Espacio superior e inferior */
+        z-index: 1000; /* Asegura que el navbar esté por encima de otros elementos */
+    }
+
+    .nav-img img {
+        width: 30px; /* Tamaño reducido para imágenes en móviles */
+        height: auto; /* Mantiene la proporción */
+    }
+
+    .nav-list {
+        display: flex; /* Muestra la lista de navegación en fila */
+        padding: 0;
+    }
+
+    .nav-list li {
+        margin: 0; /* Elimina el margen */
+    }
+
+    .nav-list li a {
+        padding: 10px 0; /* Espacio vertical */
+    }
+
+    h1, h2, h3, p {
+        font-size: 1em; /* Ajusta los tamaños de fuente si es necesario */
+    }
+    
+    .modalDialog > div {
+    background-color: #181B22; 
+    width: 95%; /* Cambiado a 95% */
+    height: 98%; /* Cambiado a 90% */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px; /* Reduce el padding si es necesario */
+    overflow: auto;
+    border-radius: 20px;
+}
+
+/* Ajustes de tamaño de texto dentro del modal */
+.modalDialog h2,
+.modalDialog h3,
+.modalDialog p {
+    font-size: 1em; /* Reducir tamaño de fuente */
+}
+
+/* Ajustes para los campos de texto */
+.input {
+    font-size: 14px; /* Reducir el tamaño de la fuente de los inputs */
+    padding: 8px 16px; /* Ajustar padding si es necesario */
+}
+
+/* Ajuste para los botones */
+.btn {
+    font-size: 14px; /* Reducir el tamaño de la fuente de los botones */
+    padding: 6px 10px; /* Ajustar padding si es necesario */
+}
+
+    
+}
+

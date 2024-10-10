@@ -13,6 +13,7 @@ error_reporting(0);
     <link rel="stylesheet" href="../css/style.css">
     </head>
 <body>
+    
     <div class="sidebar">
         <ul class="nav-list">
             <li>
@@ -30,13 +31,23 @@ error_reporting(0);
                   <img  src="../img/puerta.png" alt="control de acceso">
                 </a>
             </li>
+            <li>
+                <a class="nav-img" href="#incendio">
+                  <img  src="../img/incendio.png" alt="control de incendios">
+                </a>
+            </li>
+            <li>
+                <a class="nav-img" href="#cazul">
+                  <img  src="../img/clave.png" alt="clave azul">
+                </a>
+            </li>
         </ul>
     </div>
 
     <button onclick="topFunction()" id="scrollToTopBtn" title="Ir al inicio">↑</button>
     
     <div class="content" id="registro">
-        <small style="color: yellow;">Version alfa 1.1.3</small>  
+        <small style="color: yellow;">Version alfa 1.1.5</small>  
         <h1>Registro de cambio de turno</h1>
         <p>Presiona el boton de la derecha para realizar un registro.</p>
               
@@ -45,8 +56,6 @@ error_reporting(0);
                 Nuevo Registro +
             </button>
         </a>
-
-        
 
         <form class="form-inline" action="" method="post" enctype="multipart/form-data">
           <div class="input-group">
@@ -92,7 +101,28 @@ error_reporting(0);
                           <td><?php echo $row['Entrega']; ?></td>
                           <td><?php echo $row['Recibe'] ? $row['Recibe'] : '<span style="color: darkred; font-size: 12px;">No firmado</span>'; ?></td>
                           <td>
-                            <a href="#Leer" class="btn-variant" onclick="showModal('<?php echo $row['Fecha']; ?>', '<?php echo $row['Entrega']; ?>', '<?php echo $row['Recibe'] ? $row['Recibe'] : 'no'; ?>', '<?php echo $row['CC'] ?? ''; ?>', '<?php echo $row['CCTV'] ?? ''; ?>', '<?php echo $row['C_ACC'] ?? ''; ?>', '<?php echo $row['PAB'] ?? ''; ?>', '<?php echo $row['UPC'] ?? ''; ?>', '<?php echo $row['P_Superiores'] ?? ''; ?>', '<?php echo $row['Incendio'] ?? ''; ?>', '<?php echo $row['Central_Termica'] ?? ''; ?>', '<?php echo $row['Data_Center'] ?? ''; ?>', '<?php echo $row['Comentarios'] ? $row['Comentarios'] : 'No hay comentarios'; ?>', '<?php echo $row['Observaciones'] ? $row['Observaciones'] : 'No hay observaciones'; ?>')">Leer</a>
+                            
+                            <a href="#Leer" class="btn-variant" onclick="showModal(
+                                '<?php echo addslashes(htmlspecialchars($row['Fecha'])); ?>', 
+                                '<?php echo addslashes(htmlspecialchars($row['Entrega'])); ?>', 
+                                '<?php echo addslashes(htmlspecialchars($row['Recibe'] ? $row['Recibe'] : 'no')); ?>', 
+                                '<?php echo addslashes(htmlspecialchars(str_replace(array("\r", "\n"), ' ', $row['CC'] ?? ''))); ?>', 
+                                '<?php echo addslashes(htmlspecialchars(str_replace(array("\r", "\n"), ' ', $row['CCTV'] ?? ''))); ?>', 
+                                '<?php echo addslashes(htmlspecialchars(str_replace(array("\r", "\n"), ' ', $row['C_ACC'] ?? ''))); ?>', 
+                                '<?php echo addslashes(htmlspecialchars(str_replace(array("\r", "\n"), ' ', $row['PAB'] ?? ''))); ?>', 
+                                '<?php echo addslashes(htmlspecialchars(str_replace(array("\r", "\n"), ' ', $row['UPC'] ?? ''))); ?>', 
+                                '<?php echo addslashes(htmlspecialchars(str_replace(array("\r", "\n"), ' ', $row['P_Superiores'] ?? ''))); ?>', 
+                                '<?php echo addslashes(htmlspecialchars(str_replace(array("\r", "\n"), ' ', $row['Incendio'] ?? ''))); ?>', 
+                                '<?php echo addslashes(htmlspecialchars(str_replace(array("\r", "\n"), ' ', $row['Central_Termica'] ?? ''))); ?>', 
+                                '<?php echo addslashes(htmlspecialchars(str_replace(array("\r", "\n"), ' ', $row['Data_Center'] ?? ''))); ?>', 
+                                '<?php echo addslashes(htmlspecialchars(str_replace(array("\r", "\n"), ' ', $row['Comentarios'] ? $row['Comentarios'] : 'No hay comentarios'))); ?>', 
+                                '<?php echo addslashes(htmlspecialchars(str_replace(array("\r", "\n"), ' ', $row['Observaciones'] ? $row['Observaciones'] : 'No hay observaciones'))); ?>'
+                            )">Leer</a>
+
+
+
+
+
                             <a href="#modalFirmar" class="btn-variant firmar" onclick="openModal('<?php echo $row['id']; ?>')">Firmar</a>
                           </td>
                       </tr>
@@ -110,9 +140,8 @@ error_reporting(0);
             </tbody>
           </table>
         
-          <div id="Leer" class="modalDialog">
+        <div id="Leer" class="modalDialog">
             <div>
-              <div class="content">
                 <a href="#close" title="Close" class="close">x</a>
                 <!-- Aquí se mostrará el contenido dinámico del registro -->
                 <h2>Detalle del Registro</h2>
@@ -120,10 +149,10 @@ error_reporting(0);
                 <p><strong>Creado por:</strong> <span id="leerEntrega"></span></p>
                 <p><strong>Firmado por:</strong> <span id="leerRecibe"></span> <span id="noFirmado" style="color: red;"></span></p>
                 
-                <div id="registroDetalles"></div>
-              </div>
+                <div class="RDetalles" id="registroDetalles"></div>
             </div>
           </div>
+
 
           <div id="modalFirmar" class="modalDialog">
             <div>
@@ -135,6 +164,7 @@ error_reporting(0);
                     <input type="hidden" name="turno_id" id="turno_id" value="">
                     <select name="usuario_firma" class="input" required>
                         <option value="">Seleccionar usuario</option>
+                        <option value="Sebastian">Sebastian H.</option>
                         <option value="Cristofer">Cristofer S.</option>
                         <option value="Christian">Christian Q.</option>
                         <option value="Juan">Juan D.</option>
@@ -163,7 +193,8 @@ error_reporting(0);
                     <div class="input-group">
                         <input type="date" class="input" name="Fecha" placeholder="Fecha" required/>
                         <select name="Entrega" class="input" required >
-                            <option value="0" selected>Entrega</option>
+                            <option value="">Seleccionar usuario</option>
+                            <option value="Sebastian">Sebastian H.</option>
                             <option value="Cristofer">Cristofer S.</option>
                             <option value="Christian">Christian Q.</option>
                             <option value="Juan">Juan D.</option>

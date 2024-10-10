@@ -1,5 +1,4 @@
 function showModal(fecha, entrega, recibe, cc, cctv, c_acc, pabellones, upc, p_superiores, incendio, central_termica, data_center, comentarios, observaciones) {
-
     document.getElementById('leerFecha').textContent = fecha;
     document.getElementById('leerEntrega').textContent = entrega;
 
@@ -34,21 +33,15 @@ function showModal(fecha, entrega, recibe, cc, cctv, c_acc, pabellones, upc, p_s
             h3.textContent = section.label; 
 
             const p = document.createElement('p');
-            p.textContent = section.value; 
+            // Aquí reemplazamos los saltos de línea (\n) con etiquetas <br> en el JavaScript
+            p.innerHTML = section.value.replace(/(?:\r\n|\r|\n)/g, '<br>');
 
             registroDetalles.appendChild(h3);
             registroDetalles.appendChild(p);
         }
     });
-
-    // const comentariosP = document.createElement('p');
-    // comentariosP.innerHTML = '<strong>Comentarios:</strong> ' + (comentarios || 'No hay comentarios');
-    // registroDetalles.appendChild(comentariosP);
-
-    // const observacionesP = document.createElement('p');
-    // observacionesP.innerHTML = '<strong>Observaciones:</strong> ' + (observaciones || 'No hay observaciones');
-    // registroDetalles.appendChild(observacionesP);
 }
+
 
 function openModal(turnoId) {
     document.getElementById('turno_id').value = turnoId;
