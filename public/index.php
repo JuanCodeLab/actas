@@ -116,12 +116,7 @@ error_reporting(0);
                                 '<?php echo addslashes(htmlspecialchars(str_replace(array("\r", "\n"), ' ', $row['Central_Termica'] ?? ''))); ?>', 
                                 '<?php echo addslashes(htmlspecialchars(str_replace(array("\r", "\n"), ' ', $row['Data_Center'] ?? ''))); ?>', 
                                 '<?php echo addslashes(htmlspecialchars(str_replace(array("\r", "\n"), ' ', $row['Comentarios'] ? $row['Comentarios'] : 'No hay comentarios'))); ?>', 
-                                '<?php echo addslashes(htmlspecialchars(str_replace(array("\r", "\n"), ' ', $row['Observaciones'] ? $row['Observaciones'] : 'No hay observaciones'))); ?>'
-                            )">Leer</a>
-
-
-
-
+                                '<?php echo addslashes(htmlspecialchars(str_replace(array("\r", "\n"), ' ', $row['Observaciones'] ? $row['Observaciones'] : 'No hay observaciones'))); ?>')">Leer</a>
 
                             <a href="#modalFirmar" class="btn-variant firmar" onclick="openModal('<?php echo $row['id']; ?>')">Firmar</a>
                           </td>

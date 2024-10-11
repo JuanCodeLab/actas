@@ -1,4 +1,5 @@
 function showModal(fecha, entrega, recibe, cc, cctv, c_acc, pabellones, upc, p_superiores, incendio, central_termica, data_center, comentarios, observaciones) {
+    
     document.getElementById('leerFecha').textContent = fecha;
     document.getElementById('leerEntrega').textContent = entrega;
 
@@ -59,7 +60,6 @@ function scrollFunction() {
     }
 }
 
-// Cuando el usuario hace clic en el botón, sube al inicio de la página
 function topFunction() {
     document.body.scrollTop = 0; // Para Safari
     document.documentElement.scrollTop = 0; // Para Chrome, Firefox, IE y Opera

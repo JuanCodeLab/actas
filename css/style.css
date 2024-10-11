@@ -101,7 +101,6 @@ a {
 /* AAAAAAA */
 
 .RDetalles {
-    white-space: normal; 
     padding-right: 200px;
 }
 
@@ -248,9 +247,10 @@ p {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background: rgba(0,0,0,0.8);
+	background: rgba(0,0,0,0.6);
 	z-index: 99999;
 	opacity:0;
+    backdrop-filter: blur(10px);
     overflow: auto;
     color:#181B22;
 	-webkit-transition: opacity 400ms ease-in;
@@ -267,7 +267,7 @@ p {
 .modalDialog > div {
 
     background-color:  #181B22; 
-    width: 65%;
+    width: 70%;
     height: 90%;
     position: absolute;
     top: 50%;
@@ -357,11 +357,6 @@ p {
     color: #d8d8d8;
 }
 
-/* .custom-table tbody tr:hover {
-    background-color: #a6a6a6;
-    color: #242A36;
-}*/
-
 #scrollToTopBtn {
     display: none; 
     position: fixed;
@@ -384,8 +379,7 @@ p {
     
 }
 
-
-@media (max-width: 768px) { /* Ajusta el ancho según sea necesario */
+@media (max-width: 768px) { 
     .sidebar {
         display: none; /* Oculta la barra lateral en móviles */
     }
@@ -430,37 +424,39 @@ p {
     }
     
     .modalDialog > div {
-    background-color: #181B22; 
-    width: 95%; /* Cambiado a 95% */
-    height: 98%; /* Cambiado a 90% */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 30px; /* Reduce el padding si es necesario */
-    overflow: auto;
-    border-radius: 20px;
-}
+        background-color: #181B22; 
+        width: 95%; /* Cambiado a 95% */
+        height: 98%; /* Cambiado a 90% */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 30px; /* Reduce el padding si es necesario */
+        overflow: auto;
+        border-radius: 20px;
+    }
 
-/* Ajustes de tamaño de texto dentro del modal */
-.modalDialog h2,
-.modalDialog h3,
-.modalDialog p {
-    font-size: 1em; /* Reducir tamaño de fuente */
-}
+    /* Ajustes de tamaño de texto dentro del modal */
+    .modalDialog h2,
+    .modalDialog h3,
+    .modalDialog p {
+        font-size: 1em; /* Reducir tamaño de fuente */
+    }
 
-/* Ajustes para los campos de texto */
-.input {
-    font-size: 14px; /* Reducir el tamaño de la fuente de los inputs */
-    padding: 8px 16px; /* Ajustar padding si es necesario */
-}
+    /* Ajustes para los campos de texto */
+    .input {
+        font-size: 14px; /* Reducir el tamaño de la fuente de los inputs */
+        padding: 8px 16px; /* Ajustar padding si es necesario */
+    }
 
-/* Ajuste para los botones */
-.btn {
-    font-size: 14px; /* Reducir el tamaño de la fuente de los botones */
-    padding: 6px 10px; /* Ajustar padding si es necesario */
-}
+    /* Ajuste para los botones */
+    .btn {
+        font-size: 14px; /* Reducir el tamaño de la fuente de los botones */
+        padding: 6px 10px; /* Ajustar padding si es necesario */
+    }
 
-    
+    .RDetalles {
+        padding-right: 20px;
+    }
 }
 
